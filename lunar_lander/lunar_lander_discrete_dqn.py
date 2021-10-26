@@ -188,7 +188,7 @@ if __name__ == '__main__':
 
     # TODO: Maybe try to sample the memory of the best episodes to train on? (>top 30% of episodes)
 
-    # TODO: Maybe try a policy algorithm 
+    # TODO: Compare a policy vs value based algorithms
 
 
     sum_reward_list = [np.sum(i) for i in all_episode_rewards]
