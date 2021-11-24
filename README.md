@@ -10,6 +10,9 @@ Goal: Teach a DQN agent to learn how to land a ship on a landing pad.
 
 <b>Experiments:</b>
 * Memory size (memory)
+
+![alt text](https://github.com/megforr/open_ai/blob/main/lunar_lander/experiment_results/avg_reward_dqn_11_23_2021_13_04.png)
+
  * Results: 
 * Learning rate (alpha)
  * Results:
