@@ -1,22 +1,21 @@
 '''
 Train agent to learn how to land on a landing pad at (0,0)
 
-Not sure about when you should train the model & where you should apply the discount to epsilon - investigate
-
 TODO: Parameters/Experiments:
 1. Experience replay buffer size (100k, 1M, 10M) - DONE
-2. Learning rate (alpha = 0.01, 0.005, 0.001) - DONE
+2. Learning rate (alpha = 0.01, 0.005, 0.001) - ONGOING
 3. Epsilon min & decay rate
     (epsilon min = 0.01, 0.05, 0.1)
     (epsilon decay = 0.9, 0.95, 0.99)
-4. Discount rate (gamma = 0.9, 0.95, 0.99)
+4. Discount rate (gamma = 0.9, 0.95, 0.99) - DONE
 5. neural network architecture (hidden layers)
 6. custom reward function
 7. Function approximation methods:
     1. value-based
-    2. policy-based
+    2. policy-based**
     3. CNN
-8. Maybe try cross-entropy method to choose to train on highest value rewards
+8. Batch size (32 vs. 64)
+9.
 '''
 
 import numpy as np
@@ -109,10 +108,10 @@ class KerasDQN:
 if __name__ == '__main__':
 
     # store the experiments
-    experiment_details = 'discount_rate'
+    experiment_details = 'learning_rate'
     experiment_total_reward_results = []
     experiment_avg_reward_results = []
-    values_to_test = [0.9, 0.95, 0.99]
+    values_to_test = [0.01, 0.005, 0.001]
 
     for value in values_to_test:
 
@@ -122,7 +121,7 @@ if __name__ == '__main__':
         n_episodes = 250
         max_frames_per_episode = 500
         agent = KerasDQN(env.action_space.n, env.observation_space.shape[0])
-        agent.gamma = value
+        agent.alpha = value
 
         experiment_info = 'Experiment Date: ' + str(time_now) +\
                           ' | Episodes= ' + str(n_episodes) +\
